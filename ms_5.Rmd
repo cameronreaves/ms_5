@@ -1,0 +1,30 @@
+---
+title: "ms_5"
+output: html_document
+---
+
+### Cameron Reaves
+
+# Plot of Counties and their predicted net migration
+
+```{r include=FALSE}
+library(tidyverse)
+```
+
+```{r include=FALSE}
+climate <- read_csv("raw-data/climate.csv")
+```
+
+```{r echo=FALSE}
+ggplot(climate[1:20,], aes(County, `Net Migration`))+
+  geom_col() +
+  coord_flip() +
+  labs(
+    title = "Counties vs Net Migration"
+  )+
+  theme(
+    panel.background = element_blank(), 
+    axis.line = element_line(size = .6)
+  )
+```
+
